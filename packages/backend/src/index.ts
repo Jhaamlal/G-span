@@ -12,9 +12,6 @@ app.use(cors())
 
 app.use("/api", appRouter)
 
-app.get("/", (req: Request, res: Response) => {
-  res.json({ message: "Welcome to the Express + TypeScript Server!" })
-})
 const port = process.env.PORT
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`)

@@ -3,6 +3,7 @@
 import { useSession, signOut } from "next-auth/react"
 import { useEffect, useState } from "react"
 import { ProductInterface } from "../../../Interfaces"
+import CardData from "../components/CardData"
 
 export default function ProductsPage() {
   const { data: session } = useSession()
@@ -63,18 +64,7 @@ export default function ProductsPage() {
         {showLoader ? (
           <span className="loader">L &nbsp; ading</span>
         ) : (
-          products.map((product) => (
-            <div key={product.id} className="border rounded p-4 shadow">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-48 object-contain mb-4"
-              />
-              <h3 className="font-bold mb-2">{product.title}</h3>
-              <p className="text-gray-600 mb-2">{product.description}</p>
-              <p className="font-bold text-lg">${product.price}</p>
-            </div>
-          ))
+          <CardData products={products} />
         )}
       </div>
 
